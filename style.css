@@ -1,0 +1,107 @@
+/* font */
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&display=swap');
+
+/* global styles */
+:root {
+  --color-black: #000;
+  --color-drak-grey: #7d7d7d;
+  --color-grey: #e5e5e5;
+  --color-light-grey: #f3f3f3;
+  --color-white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Libre Baskerville', serif;
+  background-color: var(--color-white);
+}
+
+/* nav */
+nav {
+  border-bottom: 1px solid --color-grey;
+  box-shadow: 0 1px 4px #7d7d7d;
+  width: 100%;
+}
+.nav-container {
+  max-width: 375px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px;
+}
+
+nav a {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: var(--color-drak-grey);
+  text-transform: uppercase;
+  text-decoration: none;
+}
+
+/* main home gallery */
+.home-gallery {
+  max-width: 375px;
+  padding: 24px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
+  border: 1px solid red;
+}
+
+.single-item {
+  display: block;
+  position: relative;
+  cursor: pointer;
+}
+
+.filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(255, 255, 255, 0) 50%,
+    rgba(151, 151, 151, 0.4)
+  );
+}
+
+.single-item:hover .filter {
+  background: linear-gradient(
+    rgba(255, 255, 255, 0.4) 50%,
+    rgba(151, 151, 151, 0.4)
+  );
+}
+
+.single-item img {
+  width: 100%;
+  height: 100%;
+}
+
+.gallery-image-info {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  color: var(--color-white);
+}
+
+.gallery-image-info h1 {
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  margin-bottom: 8px;
+}
+
+.gallery-image-info p {
+  font-weight: 400;
+  font-size: 13px;
+  opacity: 0.73;
+}
+
+/* revoir comment résoudre le probléme de ces images */
