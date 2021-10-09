@@ -2,6 +2,9 @@ const slideMain = document.querySelector('.slideshow');
 const backBtn = document.querySelector('.back');
 const nextBtn = document.querySelector('.next');
 const bar = document.querySelector('.width-bar');
+const galleryImg = document.querySelector('.gallery-image');
+const footerArtist = document.querySelector('.footer-artist');
+const footerName = document.querySelector('.footer-name');
 
 let counter = parseInt(localStorage.getItem('counter'));
 
@@ -31,12 +34,6 @@ nextBtn.addEventListener('click', () => {
 function displaySlideShow(data, start) {
   let { images, name, artist, year, description, source } = data[start];
   let slideHml = `
-  <div class="gallery-image">
-  <div>
-    <p class="close-btn">close</p>
-    <img src="${images.gallery}" alt="${name}" />
-  </div>
-  </div>
     <div class="single-slideshow">
       <div class="img-container">
         <img src="${images.hero.small}" alt="" class="slideshow-main-img" />
@@ -59,14 +56,19 @@ function displaySlideShow(data, start) {
       </div>`;
 
   slideMain.innerHTML = slideHml;
+  galleryImg.innerHTML = `<div>
+  <p class="close-btn">close</p>
+  <img src="${images.gallery}" alt="${name}" />
+</div>`;
   setTimeout(() => {
     slideMain.style.visibility = 'visible';
     slideMain.style.transform = 'translateX(0%)';
   }, 750);
+  footerArtist.textContent = artist.name;
+  footerName.textContent = name;
 
   const viewImage = slideMain.querySelector('.view-image');
-  const galleryImg = slideMain.querySelector('.gallery-image');
-  const closeBtn = slideMain.querySelector('.close-btn');
+  const closeBtn = document.querySelector('.close-btn');
 
   viewImage.addEventListener('click', () => galleryImg.classList.add('show'));
   closeBtn.addEventListener('click', () => galleryImg.classList.remove('show'));
