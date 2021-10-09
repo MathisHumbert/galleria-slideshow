@@ -127,11 +127,19 @@ nav {
   min-height: calc(100vh - 144px);
   padding: 24px;
   margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid blue;
+}
+
+.single-slideshow {
+  position: absolute;
+  width: 100%;
+  min-height: calc(100vh - 144px);
 }
 
 .img-container {
   position: relative;
-  width: 100%;
 }
 
 .slideshow-main-img {
@@ -192,7 +200,6 @@ nav {
 
 .painting-info {
   padding-top: 10rem;
-
   position: relative;
 }
 
@@ -215,7 +222,7 @@ nav {
 
 /* gallery-image */
 .gallery-image {
-  visibility: hidden;
+  visibility: visible;
   position: absolute;
   top: 0;
   left: 0;

@@ -14,10 +14,10 @@ async function getData(URL) {
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  getData('./data.json');
+  getGallery('./data.json');
 });
 
-function displayData(data) {
+function displayGallery(data) {
   let dataHtml = data
     .map((item) => {
       const name = item.name;
