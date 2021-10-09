@@ -25,7 +25,7 @@ function displayData(data) {
       const img = item.images.thumbnail;
 
       return `
-    <a class="single-item">
+    <a class="gallery-single-item">
         <img src="${img}" alt="${name}" />
         <div class="gallery-image-info">
           <h1>${name}</h1>

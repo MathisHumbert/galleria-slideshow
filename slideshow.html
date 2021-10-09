@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- link css -->
+    <link rel="stylesheet" href="style.css" />
+    <title>Galleria Slideshow</title>
+  </head>
+  <body>
+    <!-- nav -->
+    <nav>
+      <div class="nav-container">
+        <img src="./small-logo.svg" alt="" />
+        <a href="index.html" class="link">stop slideshow</a>
+      </div>
+    </nav>
+    <!-- main -->
+    <main class="slideshow">
+      <div class="gallery-image">
+        <div class="container">
+          <p class="close">close</p>
+          <img src="./mona-lisa/gallery.jpg" alt="" />
+        </div>
+      </div>
+      <div class="slideshow-single-item">
+        <div class="img-container">
+          <img
+            src="./mona-lisa/hero-small.jpg"
+            alt=""
+            class="slideshow-main-img"
+          />
+          <div class="view-image">
+            <img src="./assets/shared/icon-view-image.svg" alt="" />
+            <p>view image</p>
+          </div>
+          <div class="slideshow-header">
+            <h1 class="head1">Mona Lisa</h1>
+            <p class="shead1">Leonardo da Vinci</p>
+          </div>
+          <img src="./mona-lisa/artist.jpg" alt="" class="artist-img" />
+        </div>
+        <div class="painting-info">
+          <p>
+            The Mona Lisa (/ˌmoʊnə ˈliːsə/; italian: La Gioconda [la dʒoˈkonda]
+            or Monna Lisa [ˈmɔnna ˈliːza]) is a half-length portrait painting by
+            Italian artist Leonardo da Vinci. Considered an archetypal
+            masterpiece of the Italian Renaissance, it has been described as
+            "the best known, the most visited, the most written about, the most
+            sung about, the most parodied work of art in the world". The
+            painting's novel qualities include the subject's enigmatic
+            expression, the monumentality of the composition, the subtle
+            modelling of forms, and the atmospheric illusionism.
+          </p>
+          <a href="index.html" class="link">go to source</a>
+          <span class="date">1503</span>
+        </div>
+      </div>
+    </main>
+    <!-- footer -->
+    <footer>
+      <div class="footer-container">
+        <div class="bar">
+          <div class="width-bar"></div>
+        </div>
+        <div class="footer-info">
+          <h1>Mona Lisa</h1>
+          <p>Leonardo da Vinci</p>
+        </div>
+        <div class="footer-buttons">
+          <img src="./assets/shared/icon-back-button.svg" alt="" class="back" />
+          <img src="./assets/shared/icon-next-button.svg" alt="" class="next" />
+        </div>
+      </div>
+    </footer>
+    <!-- link js -->
+    <script src="app.js"></script>
+  </body>
+</html>
