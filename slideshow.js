@@ -1,4 +1,4 @@
-const main = document.querySelector('.slideshow');
+const slideMain = document.querySelector('.slideshow');
 
 async function fetchData(URL) {
   const response = await fetch(URL);
@@ -21,7 +21,7 @@ function displaySlideShow(data) {
       let { images, name, artist, year, description, source } = item;
 
       return `
-   <div class="single-slideshow">
+  <div class="single-slideshow">
     <div class="img-container">
       <img src="${images.hero.small}" alt="" class="slideshow-main-img" />
       <div class="view-image">
@@ -41,14 +41,11 @@ function displaySlideShow(data) {
       </a>
       <span class="date">${year}</span>
     </div>
-  </div>
-  
-
-   `;
+  </div> `;
     })
     .join(' ');
 
-  main.innerHTML = dataHtml;
+  slideMain.innerHTML = dataHtml;
 
   const slides = document.querySelectorAll('.single-slideshow');
 

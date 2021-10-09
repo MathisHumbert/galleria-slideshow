@@ -136,6 +136,7 @@ nav {
   position: absolute;
   width: 100%;
   min-height: calc(100vh - 144px);
+  border: 1px solid;
 }
 
 .img-container {

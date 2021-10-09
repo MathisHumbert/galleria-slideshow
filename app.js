@@ -10,14 +10,15 @@ async function fetchData(URL) {
 async function getData(URL) {
   const data = await fetchData(URL);
 
-  displayData(data);
+  displayGallery(data);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
-  getGallery('./data.json');
+  getData('./data.json');
 });
 
 function displayGallery(data) {
+  console.log(data);
   let dataHtml = data
     .map((item) => {
       const name = item.name;
