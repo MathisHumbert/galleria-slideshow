@@ -1,4 +1,8 @@
 const slideMain = document.querySelector('.slideshow');
+const backBtn = document.querySelector('.back');
+const nextBtn = document.querySelector('.next');
+
+let counter = parseInt(localStorage.getItem('counter'));
 
 async function fetchData(URL) {
   const response = await fetch(URL);
@@ -8,11 +12,18 @@ async function fetchData(URL) {
 
 async function getData(URL) {
   const data = await fetchData(URL);
-  displaySlideShow(data, 0);
+  displaySlideShow(data, counter);
 }
 
 window.addEventListener('DOMContentLoaded', () => {
   getData('./data.json');
+});
+
+backBtn.addEventListener('click', () => {
+  backSlide(14);
+});
+nextBtn.addEventListener('click', () => {
+  nextSlide(14);
 });
 
 function displaySlideShow(data, start) {
@@ -47,10 +58,26 @@ function displaySlideShow(data, start) {
 
   slideMain.innerHTML = slideHml;
 
-  const viewImage = document.querySelector('.view-image');
-  const galleryImg = document.querySelector('.gallery-image');
-  const closeBtn = document.querySelector('.close-btn');
+  const viewImage = slideMain.querySelector('.view-image');
+  const galleryImg = slideMain.querySelector('.gallery-image');
+  const closeBtn = slideMain.querySelector('.close-btn');
 
   viewImage.addEventListener('click', () => galleryImg.classList.add('show'));
   closeBtn.addEventListener('click', () => galleryImg.classList.remove('show'));
+}
+
+function backSlide(data) {
+  console.log(counter);
+  counter--;
+
+  if (counter < 0) counter = data;
+  getData('./data.json');
+}
+
+function nextSlide(data) {
+  console.log(counter);
+  counter++;
+
+  if (counter > data) counter = 0;
+  getData('./data.json');
 }

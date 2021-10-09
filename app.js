@@ -20,13 +20,13 @@ window.addEventListener('DOMContentLoaded', () => {
 function displayGallery(data) {
   console.log(data);
   let dataHtml = data
-    .map((item) => {
+    .map((item, index) => {
       const name = item.name;
       const artist = item.artist.name;
       const img = item.images.thumbnail;
 
       return `
-    <a class="gallery-single-item">
+    <a href="slideshow.html"class="gallery-single-item" data-index="${index}">
         <img src="${img}" alt="${name}" />
         <div class="gallery-image-info">
           <h1>${name}</h1>
@@ -39,4 +39,10 @@ function displayGallery(data) {
     .join('');
 
   homeGallery.innerHTML = dataHtml;
+  const gallerySingleItem = document.querySelectorAll('.gallery-single-item');
+  gallerySingleItem.forEach((item) => {
+    item.addEventListener('click', (e) => {
+      localStorage.setItem('counter', e.currentTarget.dataset.index);
+    });
+  });
 }
