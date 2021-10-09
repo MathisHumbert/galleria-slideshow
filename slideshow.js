@@ -1,6 +1,7 @@
 const slideMain = document.querySelector('.slideshow');
 const backBtn = document.querySelector('.back');
 const nextBtn = document.querySelector('.next');
+const bar = document.querySelector('.width-bar');
 
 let counter = parseInt(localStorage.getItem('counter'));
 
@@ -17,6 +18,7 @@ async function getData(URL) {
 
 window.addEventListener('DOMContentLoaded', () => {
   getData('./data.json');
+  barProgress(counter, 14);
 });
 
 backBtn.addEventListener('click', () => {
@@ -57,6 +59,10 @@ function displaySlideShow(data, start) {
       </div>`;
 
   slideMain.innerHTML = slideHml;
+  setTimeout(() => {
+    slideMain.style.visibility = 'visible';
+    slideMain.style.transform = 'translateX(0%)';
+  }, 750);
 
   const viewImage = slideMain.querySelector('.view-image');
   const galleryImg = slideMain.querySelector('.gallery-image');
@@ -67,17 +73,32 @@ function displaySlideShow(data, start) {
 }
 
 function backSlide(data) {
-  console.log(counter);
   counter--;
-
   if (counter < 0) counter = data;
-  getData('./data.json');
+
+  slideMain.style.transform = 'translateX(-200vw)';
+  setTimeout(() => {
+    slideMain.style.visibility = 'hidden';
+    slideMain.style.transform = 'translateX(200vw)';
+    getData('./data.json');
+  }, 750);
+
+  barProgress(counter, data);
 }
 
 function nextSlide(data) {
-  console.log(counter);
   counter++;
-
   if (counter > data) counter = 0;
-  getData('./data.json');
+
+  slideMain.style.transform = 'translateX(200vw)';
+  setTimeout(() => {
+    slideMain.style.visibility = 'hidden';
+    slideMain.style.transform = 'translateX(-200vw)';
+    getData('./data.json');
+  }, 1000);
+  barProgress(counter, data);
+}
+
+function barProgress(counter, max) {
+  bar.style.width = `${Math.ceil((counter / max) * 100)}%`;
 }
