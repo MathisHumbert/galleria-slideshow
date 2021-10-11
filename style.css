@@ -140,88 +140,10 @@ main home gallery
   opacity: 0.73;
 }
 
-@media screen and (min-width: 768px) {
-  .link {
-    font-size: 12px;
-    letter-spacing: 2.5px;
-  }
-
-  .nav-container {
-    max-width: 768px;
-    max-height: 96px;
-    padding: 2rem;
-  }
-
-  .home-gallery {
-    --gap: 2rem;
-    --columns: 2;
-    max-width: 768px;
-    display: block;
-    display: column;
-    columns: var(--columns);
-    padding: 2rem;
-    gap: var(--gap);
-  }
-
-  .home-gallery > * {
-    break-inside: avoid;
-    margin-bottom: var(--gap);
-  }
-
-  @supports (grid-template-rows: masonry) {
-    .home-gallery {
-      display: grid;
-      grid-template-columns: repeat(var(--columns), 1fr);
-      grid-template-rows: masonry;
-      align-tracks: stretch;
-    }
-
-    .home-gallery > * {
-      break-inside: avoid;
-      margin-bottom: 0;
-    }
-  }
-}
-
-@media screen and (min-width: 1440px) {
-  .logo {
-    width: initial;
-    height: initial;
-  }
-
-  .nav-container {
-    max-width: 1440px;
-  }
-
-  .home-gallery {
-    --columns: 4;
-    max-width: 1440px;
-    columns: var(--columns);
-  }
-
-  @supports (grid-template-rows: masonry) {
-    .home-gallery {
-      grid-template-columns: repeat(var(--columns), 1fr);
-    }
-  }
-}
-
-/* .grid {
-  background-color: hsl(17, 100%, 94%);
-  border: 2px solid red;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
-  grid-template-rows: masonry; */
-/* display: column;
-  columns: 2; */
-
-/* .grid > * {
-  break-inside: avoid;
-  margin-bottom: 10px;
-} */
 /* 
-slideshow 
+slideshow
 */
+
 .slideshow {
   padding: 24px;
   max-width: 375px;
@@ -237,6 +159,7 @@ slideshow
 }
 
 .slideshow-main-img {
+  display: block;
   width: 100%;
 }
 
@@ -279,21 +202,19 @@ slideshow
   display: flex;
   justify-content: center;
   flex-flow: column;
-  position: absolute;
-  bottom: 0;
-  transform: translateY(50%);
+  transform: translateY(-50%);
 }
 
 .artist-img {
+  position: absolute;
   width: 64px;
   height: 64px;
-  position: absolute;
-  bottom: -116px;
-  left: 1rem;
+  bottom: 0;
+  transform: translateY(100%);
 }
 
 .painting-info {
-  padding-top: 10rem;
+  padding-top: 3rem;
   position: relative;
 }
 
@@ -306,12 +227,13 @@ slideshow
 
 .date {
   position: absolute;
-  top: 80px;
+  top: -0;
   right: 0;
   font-size: 100px;
   font-weight: 700;
   color: var(--color-light-grey);
   z-index: -1;
+  transform: translateY(-25%);
 }
 
 .source {
@@ -333,10 +255,10 @@ gallery-image
   flex-flow: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
   visibility: hidden;
   opacity: 0;
   transition: var(--basic-transition);
+  padding: 2rem;
 }
 
 .gallery-image.show {
@@ -350,7 +272,7 @@ gallery-image
   text-transform: uppercase;
   letter-spacing: 3px;
   text-align: right;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   transition: var(--basic-transition);
   cursor: pointer;
 }
@@ -360,6 +282,9 @@ gallery-image
 }
 
 .gallery-image img {
+  display: block;
+  height: 100%;
+  width: 100%;
   max-width: 327px;
 }
 
@@ -418,4 +343,226 @@ footer {
 
 .footer-buttons img:hover {
   opacity: 0.5;
+}
+
+@media screen and (min-width: 768px) {
+  .link {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+  }
+
+  .nav-container {
+    max-width: 768px;
+    max-height: 96px;
+    padding: 2rem;
+  }
+
+  .home-gallery {
+    --gap: 2rem;
+    --columns: 2;
+    max-width: 768px;
+    display: block;
+    display: column;
+    columns: var(--columns);
+    padding: 2rem;
+    gap: var(--gap);
+  }
+
+  .home-gallery > * {
+    break-inside: avoid;
+    margin-bottom: var(--gap);
+  }
+
+  @supports (grid-template-rows: masonry) {
+    .home-gallery {
+      display: grid;
+      grid-template-columns: repeat(var(--columns), 1fr);
+      grid-template-rows: masonry;
+      align-tracks: stretch;
+    }
+
+    .home-gallery > * {
+      break-inside: avoid;
+      margin-bottom: 0;
+    }
+  }
+
+  .slideshow {
+    padding: 2rem;
+    max-width: 768px;
+    min-height: calc(100vh - 192px);
+  }
+
+  .img-container {
+    position: relative;
+    width: 100%;
+
+    display: flex;
+  }
+
+  .slideshow-main-img {
+    width: 475px;
+    height: 560px;
+    object-fit: cover;
+  }
+
+  .view-image {
+    top: inherit;
+    bottom: 1rem;
+  }
+
+  .slideshow-header {
+    width: 100%;
+    height: fit-content;
+    padding: 10px 0 3rem 3rem;
+    display: block;
+    align-self: baseline;
+    margin-left: -30%;
+
+    transform: translateY(0%);
+  }
+
+  .head1 {
+    font-size: 58px;
+    line-height: 64px;
+    max-width: 440px;
+    margin-bottom: 1rem;
+  }
+
+  .artist-img {
+    width: 128px;
+    height: 128px;
+    right: 4rem;
+  }
+
+  .painting-info {
+    padding-top: 8rem;
+    padding-left: 8rem;
+    max-width: 572px;
+    margin: 0 auto;
+  }
+
+  .painting-info p {
+    max-width: 457px;
+    width: 457px;
+  }
+
+  .date {
+    top: 0;
+    left: 0;
+    font-size: 200px;
+    transform: translateY(0%);
+  }
+
+  .gallery-image img {
+    display: block;
+    height: 100%;
+    width: 100%;
+    max-width: inherit;
+  }
+
+  footer {
+    width: 100%;
+    min-height: 96px;
+    position: relative;
+  }
+
+  .footer-container {
+    max-width: 768px;
+    height: 96px;
+    padding: 2rem;
+  }
+
+  .footer-info h1 {
+    font-size: 18px;
+    margin-bottom: 5px;
+  }
+
+  .footer-info p {
+    font-size: 13px;
+  }
+
+  .footer-buttons {
+    display: flex;
+    gap: 1rem;
+  }
+
+  .footer-buttons img {
+    width: inherit;
+    height: inherit;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .logo {
+    width: initial;
+    height: initial;
+  }
+
+  .nav-container {
+    max-width: 1440px;
+  }
+
+  .home-gallery {
+    --columns: 4;
+    max-width: 1440px;
+    columns: var(--columns);
+  }
+
+  @supports (grid-template-rows: masonry) {
+    .home-gallery {
+      grid-template-columns: repeat(var(--columns), 1fr);
+    }
+  }
+
+  .slideshow {
+    max-width: 1440px;
+  }
+
+  .single-slideshow {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    position: relative;
+  }
+
+  .slideshow-main-img {
+    object-fit: cover;
+  }
+
+  .slideshow-header {
+    width: 445px;
+    margin-left: -10%;
+  }
+
+  .artist-img {
+    left: 7rem;
+    top: 0;
+    transform: translateY(387.5%);
+  }
+
+  .painting-info {
+    padding-top: 8rem;
+    padding-left: 0;
+    max-width: inherit;
+    margin: 0 auto;
+  }
+
+  .painting-info p {
+    max-width: 375px;
+    width: 375px;
+    text-align: left;
+  }
+
+  .date {
+    transform: translateY(-15%);
+  }
+
+  .source {
+    position: absolute;
+    bottom: 0;
+  }
+
+  .footer-container {
+    max-width: 1440px;
+  }
 }

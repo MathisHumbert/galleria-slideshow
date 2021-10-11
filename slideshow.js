@@ -36,7 +36,7 @@ function displaySlideShow(data, start) {
   let slideHml = `
     <div class="single-slideshow">
       <div class="img-container">
-        <img src="${images.hero.small}" alt="" class="slideshow-main-img" />
+        <img src="${images.hero.large}" alt="" class="slideshow-main-img" />
         <div class="view-image">
           <img src="./assets/shared/icon-view-image.svg" alt="" />
           <p>view image</p>
@@ -44,8 +44,9 @@ function displaySlideShow(data, start) {
         <div class="slideshow-header">
           <h1 class="head1">${name}</h1>
           <p class="shead1">${artist.name}</p>
+          <img src="${artist.image}" alt="" class="artist-img" />
         </div>
-        <img src="${artist.image}" alt="" class="artist-img" />
+        
       </div>
       <div class="painting-info">
         <p>${description}</p>
@@ -53,7 +54,8 @@ function displaySlideShow(data, start) {
           go to source
         </a>
         <span class="date">${year}</span>
-      </div>`;
+      </div>
+    </div>`;
 
   slideMain.innerHTML = slideHml;
   galleryImg.innerHTML = `<div>
