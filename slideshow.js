@@ -49,7 +49,7 @@ function displaySlideShow(data, start) {
       </div>
       <div class="painting-info">
         <p>${description}</p>
-        <a href="${source}" class="link">
+        <a href="${source}" target="_blank" class="link source">
           go to source
         </a>
         <span class="date">${year}</span>

@@ -21,7 +21,7 @@ global styles
 body {
   font-family: 'Libre Baskerville', serif;
   background-color: var(--color-white);
-  overflow: hidden;
+  overflow-x: hidden;
 }
 
 .head1 {
@@ -45,6 +45,16 @@ body {
   color: var(--color-drak-grey);
   text-transform: uppercase;
   text-decoration: none;
+  transition: var(--basic-transition);
+}
+
+.link:hover {
+  color: var(--color-black);
+}
+
+.logo {
+  width: 113px;
+  height: 32px;
 }
 
 /* 
@@ -105,6 +115,7 @@ main home gallery
 .gallery-single-item img {
   width: 100%;
   height: 100%;
+  display: inline-block;
 }
 
 .gallery-image-info {
@@ -127,6 +138,22 @@ main home gallery
   opacity: 0.73;
 }
 
+@media screen and (min-width: 768px) {
+  .link {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+  }
+
+  .nav-container {
+    max-width: 768px;
+    max-height: 96px;
+  }
+
+  .home-gallery {
+    max-width: 768px;
+    display: grid;
+  }
+}
 /* 
 slideshow 
 */
@@ -220,6 +247,10 @@ slideshow
   font-weight: 700;
   color: var(--color-light-grey);
   z-index: -1;
+}
+
+.source {
+  text-decoration: underline;
 }
 
 /* 
@@ -317,7 +348,7 @@ footer {
   width: 16px;
   height: 16px;
   cursor: pointer;
-  transition: var(--basic-transition);
+  transition: all 0.3s ease-in;
 }
 
 .footer-buttons img:hover {

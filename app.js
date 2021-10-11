@@ -18,7 +18,6 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function displayGallery(data) {
-  console.log(data);
   let dataHtml = data
     .map((item, index) => {
       const name = item.name;
