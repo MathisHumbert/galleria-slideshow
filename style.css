@@ -323,10 +323,12 @@ footer {
 
 .footer-info h1 {
   font-size: 14px;
+  transition: var(--basic-transition);
 }
 
 .footer-info p {
   font-size: 10px;
+  transition: var(--basic-transition);
 }
 
 .footer-buttons {

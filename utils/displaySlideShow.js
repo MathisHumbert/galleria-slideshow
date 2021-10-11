@@ -47,9 +47,14 @@ function displaySlideShow(data, start) {
     slideMain.style.transform = 'translateX(0%)';
   }, 750);
 
-  // footer html
-  footerArtist.textContent = artist.name;
-  footerName.textContent = name;
+  // footer html// transition slide
+
+  setTimeout(() => {
+    footerArtist.textContent = artist.name;
+    footerName.textContent = name;
+    footerName.style.opacity = '1';
+    footerArtist.style.opacity = '1';
+  }, 750);
 
   // get elements
   const viewImage = slideMain.querySelector('.view-image');

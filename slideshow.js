@@ -7,6 +7,8 @@ const backBtn = document.querySelector('.back');
 const nextBtn = document.querySelector('.next');
 const bar = document.querySelector('.width-bar');
 
+const footerArtist = document.querySelector('.footer-artist');
+const footerName = document.querySelector('.footer-name');
 // get the page clicked on
 let counter = parseInt(localStorage.getItem('counter'));
 
@@ -29,14 +31,10 @@ function backSlide(data) {
   counter--;
   if (counter < 0) counter = data;
 
-  // animation
-  slideMain.style.transform = 'translateX(200vw)';
-  setTimeout(() => {
-    slideMain.style.visibility = 'hidden';
-    slideMain.style.transform = 'translateX(-200vw)';
-    getSlideShow('./data.json', counter);
-  }, 750);
+  // animation slide
+  slideAnimation(counter, 200);
 
+  // animation bar
   barProgress(counter, data);
 
   // local storage for the slideshow
@@ -48,13 +46,10 @@ function nextSlide(data) {
   counter++;
   if (counter > data) counter = 0;
 
-  // animation
-  slideMain.style.transform = 'translateX(-200vw)';
-  setTimeout(() => {
-    slideMain.style.visibility = 'hidden';
-    slideMain.style.transform = 'translateX(200vw)';
-    getSlideShow('./data.json', counter);
-  }, 750);
+  // animation slide
+  slideAnimation(counter, -200);
+
+  // animation bar
   barProgress(counter, data);
 
   // local storage for the slideshow
@@ -64,4 +59,18 @@ function nextSlide(data) {
 // bar progress function
 function barProgress(counter, max) {
   bar.style.width = `${Math.ceil((counter / max) * 100)}%`;
+}
+
+function slideAnimation(counter, num) {
+  // animation
+  slideMain.style.transform = `translateX(${num}vw)`;
+  footerName.style.opacity = '0';
+  footerArtist.style.opacity = '0';
+
+  setTimeout(() => {
+    slideMain.style.visibility = 'hidden';
+    slideMain.style.transform = `translateX(${-num}vw)`;
+
+    getSlideShow('./data.json', counter);
+  }, 750);
 }
